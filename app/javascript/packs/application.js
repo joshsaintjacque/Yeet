@@ -4,13 +4,11 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs";
-import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import "../layouts/application.css";
 
 Rails.start();
-Turbolinks.start();
 ActiveStorage.start();
 
 import { App } from "@inertiajs/inertia-react";
@@ -20,6 +18,10 @@ import { InertiaProgress } from "@inertiajs/progress";
 
 InertiaProgress.init();
 
+// Make Rails named routes available to the client
+window.Routes = require("routes.js.erb");
+
+// Mount the inertia application
 const el = document.getElementById("app");
 
 render(

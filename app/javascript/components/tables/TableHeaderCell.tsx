@@ -1,6 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
 
-const TableHeaderCell = ({ className, colSpan, children }) => {
+interface TableHeaderCellProps {
+  children?: React.ReactNode;
+  className?: string;
+  colSpan?: number;
+}
+
+const TableHeaderCell: FC<TableHeaderCellProps> = ({
+  className,
+  colSpan,
+  children,
+}) => {
   return (
     <th
       scope="col"

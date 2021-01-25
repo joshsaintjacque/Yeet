@@ -1,6 +1,20 @@
-import React from "react";
+import React, { FC } from "react";
 
-const Button = ({ onClick, danger, className, block, children }) => {
+interface ButtonProps {
+  children: React.ReactNode;
+  onClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
+  className?: string;
+  danger?: boolean;
+  block?: boolean;
+}
+
+const Button: FC<ButtonProps> = ({
+  onClick,
+  danger,
+  className,
+  block,
+  children,
+}) => {
   return (
     <button
       onClick={onClick}

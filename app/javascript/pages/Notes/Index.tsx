@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import { new_note_path, edit_note_path, note_path } from "routes.js.erb";
 import {
@@ -8,16 +8,21 @@ import {
   TableBody,
   TableRowActionsCell,
   Table,
-} from "src/components/tables";
-import Link from "src/components/Link";
-import ConfirmableButton from "src/components/ConfirmableButton";
-import Headline from "src/components/Headline";
+} from "components/tables";
+import Link from "components/Link";
+import ConfirmableButton from "components/ConfirmableButton";
+import Headline from "components/Headline";
+import { Note } from "models/Note";
 
-const Notes = ({ notes }) => {
-  const [isConfirming, setIsConfirming] = useState({});
+interface NotesProps {
+  notes: Note[];
+}
 
-  function handleDelete(noteId) {
-    const token = document.querySelector('meta[name="csrf-token"]').content;
+const Notes: FC<NotesProps> = ({ notes }) => {
+  function handleDelete(noteId: number) {
+    const token = document
+      .querySelector('meta[name="csrf-token"]')
+      ?.getAttribute("content");
 
     Inertia.delete(note_path(noteId), {
       headers: { "X-CSRF-Token": token },
@@ -58,7 +63,7 @@ const Notes = ({ notes }) => {
           })}
           <tr>
             <td
-              colSpan="4"
+              colSpan={4}
               className="px-6 py-4 whitespace-nowrap text-sm font-medium text-center"
             >
               <Link href={new_note_path()} block>

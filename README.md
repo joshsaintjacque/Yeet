@@ -1,24 +1,32 @@
-# README
+# Yeet
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## TODO
 
-Things you may want to cover:
+- [ ] Jest
+- [ ] RTL
+- [ ] Faker
+- [ ] Tests for all components
+- [ ] FactoryBot
+- [ ] Sorbet
+- [ ] Query logic out of components
+- [ ] Husky: tsc
+- [ ] Husky: tests
+- [ ] Husky: linting
+- [ ] ESLint and configs
+- [ ] annotate_models
+- [ ] Model type defs (TS and Ruby)
+- [ ] Investigate ESBuild
+- [ ] Component generator
+- [ ] Page generator
+- [ ] Model types generator
+- [ ] Component scaffolding CRUD generator
+- [ ] Auth with Devise
+- [ ] Helmet
+- [ ] Domain architecture
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Rails
+InertiaJS
+React
+PostgreSQL
+TypeScript
+Tailwind

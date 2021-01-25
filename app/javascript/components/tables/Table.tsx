@@ -1,6 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 
-const Table = ({ children }) => {
+interface TableProps {
+  children: React.ReactNode;
+}
+
+const Table: FC<TableProps> = ({ children }) => {
   return (
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

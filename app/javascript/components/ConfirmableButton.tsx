@@ -1,7 +1,15 @@
-import React, { useState } from "react";
-import Button from "src/components/Button";
+import React, { useState, FC } from "react";
+import Button from "components/Button";
 
-const ConfirmableButton = ({ onConfirm, children }) => {
+interface ConfirmableButtonProps {
+  onConfirm(): void;
+  children: React.ReactNode;
+}
+
+const ConfirmableButton: FC<ConfirmableButtonProps> = ({
+  onConfirm,
+  children,
+}) => {
   const [isConfirming, setIsConfirming] = useState(false);
 
   return (
@@ -11,7 +19,6 @@ const ConfirmableButton = ({ onConfirm, children }) => {
       )}
       {isConfirming && (
         <>
-          {/* <span className="mr-3">Are you sure?</span> */}
           <Button onClick={onConfirm} className="animate-pulse mr-2" danger>
             {children}
           </Button>{" "}

@@ -1,7 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import { InertiaLink } from "@inertiajs/inertia-react";
 
-const Link = ({ href, block, children }) => {
+interface LinkProps {
+  children: React.ReactNode;
+  href: string;
+  block?: boolean;
+}
+
+const Link: FC<LinkProps> = ({ href, block, children }) => {
   return (
     <InertiaLink
       href={href}

@@ -1,6 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 
-const TableCell = ({ className, colSpan, children }) => {
+interface TableCellProps {
+  children: React.ReactNode;
+  className?: string;
+  colSpan?: number;
+}
+
+const TableCell: FC<TableCellProps> = ({ className, colSpan, children }) => {
   return (
     <td className={`px-6 py-4 ${className}`} colSpan={colSpan}>
       <div className="flex items-center">

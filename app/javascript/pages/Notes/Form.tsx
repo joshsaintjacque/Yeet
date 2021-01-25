@@ -1,29 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import { Inertia } from "@inertiajs/inertia";
-import { InertiaLink } from "@inertiajs/inertia-react";
 import { notes_path, note_path } from "routes.js.erb";
-import Link from "src/components/Link";
-import Button from "src/components/Button";
-import Headline from "src/components/Headline";
+import Link from "components/Link";
+import Button from "components/Button";
+import Headline from "components/Headline";
+import { Note } from "models/Note";
 
-export default function ({ note }) {
+interface FormProps {
+  note?: Note;
+}
+
+const Form: FC<FormProps> = ({ note }) => {
   const [values, setValues] = useState({
     title: note?.title || "",
     body: note?.body || "",
   });
 
-  function handleChange(e) {
-    const key = e.target.id;
-    const value = e.target.value;
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const key = event.target.id;
+    const value = event.target.value;
     setValues((values) => ({
       ...values,
       [key]: value,
     }));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const token = document.querySelector('meta[name="csrf-token"]').content;
+  function handleSubmit(
+    event:
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+      | React.FormEvent<HTMLFormElement>,
+  ) {
+    event.preventDefault();
+    const token = document
+      .querySelector('meta[name="csrf-token"]')
+      ?.getAttribute("content");
     if (note) {
       Inertia.patch(note_path(note.id), values, {
         headers: { "X-CSRF-Token": token },
@@ -98,4 +108,6 @@ export default function ({ note }) {
       </div>
     </>
   );
-}
+};
+
+export default Form;

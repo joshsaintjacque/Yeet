@@ -1,13 +1,20 @@
-import React from "react";
+import React, { FC } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import { notes_path, edit_note_path, note_path } from "routes.js.erb";
-import Headline from "src/components/Headline";
-import ConfirmableButton from "src/components/ConfirmableButton";
-import Link from "src/components/Link";
+import Headline from "components/Headline";
+import ConfirmableButton from "components/ConfirmableButton";
+import Link from "components/Link";
+import { Note } from "models/Note";
 
-const Note = ({ note }) => {
+interface NoteProps {
+  note: Note;
+}
+
+const ShowNote: FC<NoteProps> = ({ note }) => {
   function handleDelete() {
-    const token = document.querySelector('meta[name="csrf-token"]').content;
+    const token = document
+      .querySelector('meta[name="csrf-token"]')
+      ?.getAttribute("content");
 
     Inertia.delete(note_path(note.id), {
       headers: { "X-CSRF-Token": token },
@@ -64,4 +71,4 @@ const Note = ({ note }) => {
   );
 };
 
-export default Note;
+export default ShowNote;

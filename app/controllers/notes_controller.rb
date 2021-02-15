@@ -3,15 +3,13 @@ class NotesController < ApplicationController
 
   def index
     render inertia: 'Notes/Index', props: { 
-      notes: Note.order(:created_at).as_json(
-        only: [ :id, :title, :body ]
-      )
+      notes: Note.order(:created_at).map { |note| NotePresenter.new(note: note) }
     }
   end
 
   def show
     render inertia: 'Notes/Show', props: { 
-      note: @note.as_json( only: [ :id, :title, :body ] ) 
+      note: NotePresenter.new(note: @note)
     }
   end
 
@@ -21,7 +19,7 @@ class NotesController < ApplicationController
 
   def edit
     render inertia: 'Notes/Edit', props: { 
-      note: @note.as_json( only: [ :id, :title, :body ] ) 
+      note: NotePresenter.new(note: @note)
     }
   end
 

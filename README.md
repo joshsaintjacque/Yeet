@@ -3,7 +3,6 @@
 ## TODO
 
 - [ ] Extract token scraper
-- [ ] FactoryBot
 - [ ] Query logic out of components
 - [ ] Husky: tsc
 - [ ] Husky: tests
@@ -11,15 +10,16 @@
 - [ ] Husky: rake js:routes
 - [ ] ESLint and configs
 - [ ] annotate_models
-- [ ] Model type defs (TS and Ruby)
+- [ ] Model type defs from schema to TS interface
 - [ ] Investigate ESBuild
-- [ ] Component generator
 - [ ] Page generator
-- [ ] Model types generator
 - [ ] Auth with Devise
-- [ ] Component scaffolding CRUD generator
 - [ ] Helmet
 - [ ] Domain architecture
+- [ ] Ruby auto-formatter
+- [ ] Component generator
+- [ ] Model types generator
+- [ ] Component scaffolding CRUD generator
 
 Rails
 InertiaJS

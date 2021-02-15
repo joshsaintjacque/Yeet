@@ -1,0 +1,7 @@
+{
+  "app/**/*.js": { "alternate": "app/{}/_spec.js" },
+  "app/**/*.jsx": { "alternate": "app/{}/_spec.jsx" },
+  "app/**/*.ts": { "alternate": "app/{}/_spec.ts" },
+  "app/**/*.tsx": { "alternate": "app/{}/_spec.tsx" },
+  "*.rb": { "alternate": "{dirname}/spec/{basename}_spec.rb" }
+}

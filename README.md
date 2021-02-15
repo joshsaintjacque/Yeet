@@ -2,16 +2,13 @@
 
 ## TODO
 
-- [ ] Jest
-- [ ] RTL
-- [ ] Faker
-- [ ] Tests for all components
+- [ ] Extract token scraper
 - [ ] FactoryBot
-- [ ] Sorbet
 - [ ] Query logic out of components
 - [ ] Husky: tsc
 - [ ] Husky: tests
 - [ ] Husky: linting
+- [ ] Husky: rake js:routes
 - [ ] ESLint and configs
 - [ ] annotate_models
 - [ ] Model type defs (TS and Ruby)
@@ -19,8 +16,8 @@
 - [ ] Component generator
 - [ ] Page generator
 - [ ] Model types generator
-- [ ] Component scaffolding CRUD generator
 - [ ] Auth with Devise
+- [ ] Component scaffolding CRUD generator
 - [ ] Helmet
 - [ ] Domain architecture
 
@@ -30,3 +27,9 @@ React
 PostgreSQL
 TypeScript
 Tailwind
+
+## Testing
+
+Note that routes have to be manually generated for Jest specs. When you change
+or add routes, run `rake js:routes` to update the routes.js file used for
+mocking routes during tests.

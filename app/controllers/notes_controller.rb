@@ -5,7 +5,7 @@ class NotesController < ApplicationController
     render inertia: 'Notes/Index', props: { 
       notes: Note.order(:created_at).as_json(
         only: [ :id, :title, :body ]
-      ) 
+      )
     }
   end
 

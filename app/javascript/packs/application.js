@@ -21,6 +21,13 @@ InertiaProgress.init();
 // Make Rails named routes available to the client
 window.Routes = require("routes.js.erb");
 
+// Set default headers for requests
+import axios from "axios";
+const token = document
+  .querySelector('meta[name="csrf-token"]')
+  ?.getAttribute("content");
+axios.defaults.headers.common["X-CSRF-Token"] = token;
+
 // Mount the inertia application
 const el = document.getElementById("app");
 

@@ -28,7 +28,6 @@ describe("Notes/Form", () => {
         expect(Inertia.post).toHaveBeenCalledWith(
           "/notes",
           expect.objectContaining({ title, body }),
-          expect.objectContaining({ headers: expect.anything() }),
         );
       });
     });
@@ -58,7 +57,6 @@ describe("Notes/Form", () => {
         expect(Inertia.patch).toHaveBeenCalledWith(
           `/notes/${note.id}`,
           expect.objectContaining({ title: newTitle, body: newBody }),
-          expect.objectContaining({ headers: expect.anything() }),
         );
       });
     });

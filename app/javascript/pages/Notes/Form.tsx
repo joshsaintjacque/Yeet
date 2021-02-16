@@ -31,19 +31,13 @@ const Form: FC<FormProps> = ({ note }) => {
       | React.FormEvent<HTMLFormElement>,
   ) {
     event.preventDefault();
-    const token = document
-      .querySelector('meta[name="csrf-token"]')
-      ?.getAttribute("content");
+
     if (note) {
-      Inertia.patch(note_path(note.id), values, {
-        headers: { "X-CSRF-Token": token },
-      });
+      Inertia.patch(note_path(note.id), values);
       return;
     }
 
-    Inertia.post(notes_path(), values, {
-      headers: { "X-CSRF-Token": token },
-    });
+    Inertia.post(notes_path(), values);
   }
 
   return (

@@ -12,13 +12,7 @@ interface NoteProps {
 
 const ShowNote: FC<NoteProps> = ({ note }) => {
   function handleDelete() {
-    const token = document
-      .querySelector('meta[name="csrf-token"]')
-      ?.getAttribute("content");
-
-    Inertia.delete(note_path(note.id), {
-      headers: { "X-CSRF-Token": token },
-    });
+    Inertia.delete(note_path(note.id));
   }
 
   return (

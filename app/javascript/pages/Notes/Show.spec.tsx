@@ -21,10 +21,7 @@ describe("Notes/Show", () => {
       fireEvent.click(screen.getByText("Delete"));
 
       await waitFor(() =>
-        expect(Inertia.delete).toHaveBeenCalledWith(
-          `/notes/${note.id}`,
-          expect.anything(),
-        ),
+        expect(Inertia.delete).toHaveBeenCalledWith(`/notes/${note.id}`),
       );
     });
   });

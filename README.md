@@ -2,7 +2,6 @@
 
 ## TODO
 
-- [ ] Query logic out of components
 - [ ] Husky: tsc
 - [ ] Husky: tests
 - [ ] Husky: linting

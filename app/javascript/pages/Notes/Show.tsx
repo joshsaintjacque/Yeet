@@ -1,19 +1,17 @@
 import React, { FC } from "react";
-import { Inertia } from "@inertiajs/inertia";
-import { notes_path, edit_note_path, note_path } from "routes.js.erb";
+import { notes_path, edit_note_path } from "routes.js.erb";
 import Headline from "components/Headline";
 import ConfirmableButton from "components/ConfirmableButton";
 import Link from "components/Link";
 import { Note } from "models/Note";
+import useActions from "hooks/useActions";
 
 interface NoteProps {
   note: Note;
 }
 
 const ShowNote: FC<NoteProps> = ({ note }) => {
-  function handleDelete() {
-    Inertia.delete(note_path(note.id));
-  }
+  const { handleDelete } = useActions("note", note);
 
   return (
     <div>

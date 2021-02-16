@@ -1,44 +1,22 @@
-import React, { useState, FC } from "react";
-import { Inertia } from "@inertiajs/inertia";
+import React, { FC } from "react";
 import { notes_path, note_path } from "routes.js.erb";
 import Link from "components/Link";
 import Button from "components/Button";
 import Headline from "components/Headline";
 import { Note } from "models/Note";
+import useActions from "hooks/useActions";
 
 interface FormProps {
   note?: Note;
 }
 
 const Form: FC<FormProps> = ({ note }) => {
-  const [values, setValues] = useState({
-    title: note?.title || "",
-    body: note?.body || "",
-  });
+  const { values, handleChange, handlePatch, handlePost } = useActions(
+    "note",
+    note,
+  );
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const key = event.target.id;
-    const value = event.target.value;
-    setValues((values) => ({
-      ...values,
-      [key]: value,
-    }));
-  }
-
-  function handleSubmit(
-    event:
-      | React.MouseEvent<HTMLButtonElement, MouseEvent>
-      | React.FormEvent<HTMLFormElement>,
-  ) {
-    event.preventDefault();
-
-    if (note) {
-      Inertia.patch(note_path(note.id), values);
-      return;
-    }
-
-    Inertia.post(notes_path(), values);
-  }
+  const handleSubmit = note ? handlePatch : handlePost;
 
   return (
     <>

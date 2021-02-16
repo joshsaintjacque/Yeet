@@ -1,7 +1,6 @@
-export interface Note {
-  id: number;
+import { Record } from "./Record";
+
+export interface Note extends Record {
   title?: string;
   body?: string;
-  created_at: string;
-  updated_at: string;
 }

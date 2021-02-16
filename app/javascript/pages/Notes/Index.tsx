@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { Inertia } from "@inertiajs/inertia";
 import { new_note_path, edit_note_path, note_path } from "routes.js.erb";
 import {
   TableHeaderCell,
@@ -13,16 +12,13 @@ import Link from "components/Link";
 import ConfirmableButton from "components/ConfirmableButton";
 import Headline from "components/Headline";
 import { Note } from "models/Note";
+import useActions from "hooks/useActions";
 
 interface NotesProps {
   notes: Note[];
 }
 
 const Notes: FC<NotesProps> = ({ notes }) => {
-  function handleDelete(noteId: number) {
-    Inertia.delete(note_path(noteId));
-  }
-
   return (
     <div>
       <Headline>Note</Headline>
@@ -36,25 +32,9 @@ const Notes: FC<NotesProps> = ({ notes }) => {
         </TableHeader>
 
         <TableBody>
-          {notes.map((note) => {
-            return (
-              <tr key={note.id}>
-                <TableCell>{note.id}</TableCell>
-                <TableCell>{note.title}</TableCell>
-                <TableCell className="hidden sm:block">{note.body}</TableCell>
-                <TableRowActionsCell>
-                  <span className="mr-3">
-                    <Link href={note_path(note.id)}>Show</Link> |{" "}
-                    <Link href={edit_note_path(note.id)}>Edit</Link>{" "}
-                  </span>
-
-                  <ConfirmableButton onConfirm={() => handleDelete(note.id)}>
-                    Delete
-                  </ConfirmableButton>
-                </TableRowActionsCell>
-              </tr>
-            );
-          })}
+          {notes.map((note) => (
+            <NoteRow key={note.id} note={note} />
+          ))}
           <tr>
             <td
               colSpan={4}
@@ -68,6 +48,29 @@ const Notes: FC<NotesProps> = ({ notes }) => {
         </TableBody>
       </Table>
     </div>
+  );
+};
+
+interface NoteRowProps {
+  note: Note;
+}
+
+const NoteRow: FC<NoteRowProps> = ({ note }) => {
+  const { handleDelete } = useActions("note", note);
+  return (
+    <tr>
+      <TableCell>{note.id}</TableCell>
+      <TableCell>{note.title}</TableCell>
+      <TableCell className="hidden sm:block">{note.body}</TableCell>
+      <TableRowActionsCell>
+        <span className="mr-3">
+          <Link href={note_path(note.id)}>Show</Link> |{" "}
+          <Link href={edit_note_path(note.id)}>Edit</Link>{" "}
+        </span>
+
+        <ConfirmableButton onConfirm={handleDelete}>Delete</ConfirmableButton>
+      </TableRowActionsCell>
+    </tr>
   );
 };
 

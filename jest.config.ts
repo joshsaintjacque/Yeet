@@ -86,6 +86,7 @@ export default {
     "^@inertiajs/inertia$": "<rootDir>/app/javascript/__mocks__/inertiaMock.ts",
     "^components/(.*)": "<rootDir>/app/javascript/components/$1",
     "^factories/(.*)": "<rootDir>/app/javascript/factories/$1",
+    "^hooks/(.*)": "<rootDir>/app/javascript/hooks/$1",
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

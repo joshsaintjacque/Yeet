@@ -7,7 +7,6 @@
 - [ ] Husky: linting
 - [ ] Husky: rake js:routes
 - [ ] ESLint and configs
-- [ ] annotate_models
 - [ ] Model type defs from schema to TS interface
 - [ ] Investigate ESBuild
 - [ ] Page generator

@@ -2,11 +2,10 @@
 
 ## TODO
 
-- [ ] Husky: tsc
-- [ ] Husky: tests
 - [ ] Husky: linting
 - [ ] Husky: rake js:routes
 - [ ] ESLint and configs
+- [ ] Rubocop
 - [ ] Model type defs from schema to TS interface
 - [ ] Investigate ESBuild
 - [ ] Page generator

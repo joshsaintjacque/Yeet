@@ -2,7 +2,7 @@
 
 ## TODO
 
-### Critial
+### Critical
 
 - [ ] Husky: linting
 - [ ] ESLint and configs

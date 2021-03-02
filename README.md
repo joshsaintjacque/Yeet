@@ -4,13 +4,13 @@
 
 ### Critical
 
-- [ ] Husky: linting
 - [ ] ESLint and configs
-- [ ] Rubocop
+- [ ] Setup reek
 - [ ] Page generator
 - [ ] Auth with Devise
 - [ ] Component generator
 - [ ] Component scaffolding CRUD generator
+- [ ] script/setup based on fresh clone
 
 ### Coming Soon
 

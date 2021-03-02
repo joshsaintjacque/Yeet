@@ -40,11 +40,12 @@
     "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint:ruby": "bundle exec rubocop -A"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "rake js:routes && yarn tsc && yarn test && rspec"
+      "pre-commit": "rake js:routes && yarn lint:ruby && yarn tsc && yarn test && rspec"
     }
   }
 }

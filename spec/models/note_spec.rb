@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: notes
@@ -11,7 +13,7 @@
 require 'rails_helper'
 
 RSpec.describe Note, type: :model do
-  it "is valid with valid attributes" do
-    expect(Note.new).to be_valid
+  it 'is valid with valid attributes' do
+    expect(described_class.new).to be_valid
   end
 end

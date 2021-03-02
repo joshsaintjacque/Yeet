@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, only: %i[show edit update destroy]
 
   def index
-    render inertia: 'Notes/Index', props: { 
+    render inertia: 'Notes/Index', props: {
       notes: Note.order(:created_at).map { |note| NotePresenter.new(note: note) }
     }
   end
 
   def show
-    render inertia: 'Notes/Show', props: { 
+    render inertia: 'Notes/Show', props: {
       note: NotePresenter.new(note: @note)
     }
   end
@@ -18,7 +20,7 @@ class NotesController < ApplicationController
   end
 
   def edit
-    render inertia: 'Notes/Edit', props: { 
+    render inertia: 'Notes/Edit', props: {
       note: NotePresenter.new(note: @note)
     }
   end
@@ -50,11 +52,12 @@ class NotesController < ApplicationController
   end
 
   private
-    def set_note
-      @note = Note.find(params[:id])
-    end
 
-    def note_params
-      params.require(:note).permit(:title, :body)
-    end
+  def set_note
+    @note = Note.find(params[:id])
+  end
+
+  def note_params
+    params.require(:note).permit(:title, :body)
+  end
 end

@@ -87,6 +87,7 @@ export default {
     "^components/(.*)": "<rootDir>/app/javascript/components/$1",
     "^factories/(.*)": "<rootDir>/app/javascript/factories/$1",
     "^hooks/(.*)": "<rootDir>/app/javascript/hooks/$1",
+    "^layouts/(.*)": "<rootDir>/app/javascript/layouts/$1",
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

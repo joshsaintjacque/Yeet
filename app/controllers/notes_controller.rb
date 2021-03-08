@@ -2,31 +2,37 @@
 
 class NotesController < ApplicationController
   before_action :set_note, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   def index
     render inertia: 'Notes/Index', props: {
-      notes: Note.order(:created_at).map { |note| NotePresenter.new(note: note) }
+      notes: current_user.notes.order(:created_at).map { |note| NotePresenter.new(note: note) },
+      currentUser: current_user
     }
   end
 
   def show
     render inertia: 'Notes/Show', props: {
-      note: NotePresenter.new(note: @note)
+      note: NotePresenter.new(note: @note),
+      currentUser: current_user
     }
   end
 
   def new
-    render inertia: 'Notes/New'
+    render inertia: 'Notes/New', props: {
+      currentUser: current_user
+    }
   end
 
   def edit
     render inertia: 'Notes/Edit', props: {
-      note: NotePresenter.new(note: @note)
+      note: NotePresenter.new(note: @note),
+      currentUser: current_user
     }
   end
 
   def create
-    Note.create params.require(:note).permit(:title, :body)
+    current_user.notes.create note_params
 
     redirect_to notes_path
   end
@@ -54,7 +60,7 @@ class NotesController < ApplicationController
   private
 
   def set_note
-    @note = Note.find(params[:id])
+    @note = current_user.notes.find(params[:id])
   end
 
   def note_params

@@ -5,9 +5,11 @@ require 'rails_helper'
 RSpec.describe NotePresenter do
   subject(:note_presenter) { described_class.new(note: note) }
 
+  let(:user) { FactoryBot.create(:user) }
+
   describe '#is_recent' do
     context 'when the record is more than 7 days old' do
-      let(:note) { FactoryBot.create(:note, created_at: 10.days.ago) }
+      let(:note) { FactoryBot.create(:note, user: user, created_at: 10.days.ago) }
 
       it 'returns false' do
         expect(note_presenter.is_recent).to be_falsey
@@ -15,7 +17,7 @@ RSpec.describe NotePresenter do
     end
 
     context 'when the record is less than 7 days old' do
-      let(:note) { FactoryBot.create(:note, created_at: 5.days.ago) }
+      let(:note) { FactoryBot.create(:note, user: user, created_at: 5.days.ago) }
 
       it 'returns false' do
         expect(note_presenter.is_recent).to be_truthy

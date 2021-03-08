@@ -5,16 +5,19 @@ import ConfirmableButton from "components/ConfirmableButton";
 import Link from "components/Link";
 import { Note } from "models/Note";
 import useActions from "hooks/useActions";
+import { User } from "models/User";
+import MainLayout from "layouts/MainLayout";
 
 interface NoteProps {
   note: Note;
+  currentUser?: User;
 }
 
-const ShowNote: FC<NoteProps> = ({ note }) => {
+const ShowNote: FC<NoteProps> = ({ note, currentUser }) => {
   const { handleDelete } = useActions("note", note);
 
   return (
-    <div>
+    <MainLayout currentUser={currentUser}>
       <div className="bg-white shadow overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:px-6">
           <Headline>
@@ -59,7 +62,7 @@ const ShowNote: FC<NoteProps> = ({ note }) => {
           </dl>
         </div>
       </div>
-    </div>
+    </MainLayout>
   );
 };
 

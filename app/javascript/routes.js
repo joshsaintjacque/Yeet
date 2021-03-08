@@ -489,12 +489,24 @@ Based on Rails 6.1.1 routes of Yeet::Application
     make: function() {
       var routes;
       routes = {
+// cancel_user_registration => /users/cancel(.:format)
+  // function(options)
+  cancel_user_registration_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[6,"cancel",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
+// destroy_user_session => /users/sign_out(.:format)
+  // function(options)
+  destroy_user_session_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[6,"sign_out",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
 // edit_note => /notes/:id/edit(.:format)
   // function(id, options)
   edit_note_path: Utils.route([["id",true],["format",false]], {}, [2,[7,"/",false],[2,[6,"notes",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]),
 // edit_rails_conductor_inbound_email => /rails/conductor/action_mailbox/inbound_emails/:id/edit(.:format)
   // function(id, options)
   edit_rails_conductor_inbound_email_path: Utils.route([["id",true],["format",false]], {}, [2,[7,"/",false],[2,[6,"rails",false],[2,[7,"/",false],[2,[6,"conductor",false],[2,[7,"/",false],[2,[6,"action_mailbox",false],[2,[7,"/",false],[2,[6,"inbound_emails",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]),
+// edit_user_password => /users/password/edit(.:format)
+  // function(options)
+  edit_user_password_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[6,"password",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]),
+// edit_user_registration => /users/edit(.:format)
+  // function(options)
+  edit_user_registration_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
 // new_note => /notes/new(.:format)
   // function(options)
   new_note_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"notes",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
@@ -504,6 +516,15 @@ Based on Rails 6.1.1 routes of Yeet::Application
 // new_rails_conductor_inbound_email_source => /rails/conductor/action_mailbox/inbound_emails/sources/new(.:format)
   // function(options)
   new_rails_conductor_inbound_email_source_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"rails",false],[2,[7,"/",false],[2,[6,"conductor",false],[2,[7,"/",false],[2,[6,"action_mailbox",false],[2,[7,"/",false],[2,[6,"inbound_emails",false],[2,[7,"/",false],[2,[6,"sources",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]),
+// new_user_password => /users/password/new(.:format)
+  // function(options)
+  new_user_password_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[6,"password",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]),
+// new_user_registration => /users/sign_up(.:format)
+  // function(options)
+  new_user_registration_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[6,"sign_up",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
+// new_user_session => /users/sign_in(.:format)
+  // function(options)
+  new_user_session_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[6,"sign_in",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
 // note => /notes/:id(.:format)
   // function(id, options)
   note_path: Utils.route([["id",true],["format",false]], {}, [2,[7,"/",false],[2,[6,"notes",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
@@ -575,7 +596,16 @@ Based on Rails 6.1.1 routes of Yeet::Application
   root_path: Utils.route([], {}, [7,"/",false]),
 // update_rails_disk_service => /rails/active_storage/disk/:encoded_token(.:format)
   // function(encoded_token, options)
-  update_rails_disk_service_path: Utils.route([["encoded_token",true],["format",false]], {}, [2,[7,"/",false],[2,[6,"rails",false],[2,[7,"/",false],[2,[6,"active_storage",false],[2,[7,"/",false],[2,[6,"disk",false],[2,[7,"/",false],[2,[3,"encoded_token",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]])}
+  update_rails_disk_service_path: Utils.route([["encoded_token",true],["format",false]], {}, [2,[7,"/",false],[2,[6,"rails",false],[2,[7,"/",false],[2,[6,"active_storage",false],[2,[7,"/",false],[2,[6,"disk",false],[2,[7,"/",false],[2,[3,"encoded_token",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]),
+// user_password => /users/password(.:format)
+  // function(options)
+  user_password_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[6,"password",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
+// user_registration => /users(.:format)
+  // function(options)
+  user_registration_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"users",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
+// user_session => /users/sign_in(.:format)
+  // function(options)
+  user_session_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[6,"sign_in",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]])}
 ;
       routes.configure = function(config) {
         return Utils.configure(config);

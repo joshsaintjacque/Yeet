@@ -24,6 +24,7 @@ What does Yeet give you?
 - Enjoy type-safe client code with TypeScript.
 - Quickly style your components with Tailwind, no CSS files required.
 - Don't stop to setup a database: PostgreSQL is ready to go out of the box.
+- Built in authentication with Devise
 
 ## Getting Started
 
@@ -34,15 +35,16 @@ Clone the repository.
 ### Up Next
 
 - [ ] Page generator
-- [ ] Auth with Devise
 - [ ] Component generator
 - [ ] Component scaffolding CRUD generator
 - [ ] GitHub actions YML
-- [ ] script/setup based on fresh clone
+- [ ] Script/setup based on fresh clone
+- [ ] Add authentication tests (user model, main layout, controller, etc.)
 
 ### Coming Soon After
 
 - [ ] ESLint and configs
+- [ ] Standard rb
 - [ ] Model types generator
 - [ ] Helmet
 - [ ] Domain architecture
@@ -50,6 +52,7 @@ Clone the repository.
 - [ ] Switch from Webpack to ESBuild
 - [ ] Model type defs from schema to TS interface
 - [ ] Setup reek
+- [ ] Sort imports
 
 ## Testing
 

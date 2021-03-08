@@ -13,14 +13,17 @@ import ConfirmableButton from "components/ConfirmableButton";
 import Headline from "components/Headline";
 import { Note } from "models/Note";
 import useActions from "hooks/useActions";
+import MainLayout from "layouts/MainLayout";
+import { User } from "models/User";
 
 interface NotesProps {
   notes: Note[];
+  currentUser?: User;
 }
 
-const Notes: FC<NotesProps> = ({ notes }) => {
+const Notes: FC<NotesProps> = ({ notes, currentUser }) => {
   return (
-    <div>
+    <MainLayout currentUser={currentUser}>
       <Headline>Note</Headline>
 
       <Table>
@@ -47,7 +50,7 @@ const Notes: FC<NotesProps> = ({ notes }) => {
           </tr>
         </TableBody>
       </Table>
-    </div>
+    </MainLayout>
   );
 };
 

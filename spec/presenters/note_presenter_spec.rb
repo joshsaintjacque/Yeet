@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe NotePresenter do
-  subjec(:note_presenter) { described_class.new(note: note) }
+  subject(:note_presenter) { described_class.new(note: note) }
 
   describe '#is_recent' do
     context 'when the record is more than 7 days old' do

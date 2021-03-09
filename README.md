@@ -18,13 +18,13 @@ What does Yeet give you?
 
 - Get up and running fast! Run a single command and you're ready to go.
 - Build rich, stateful client features without slowing down. Leverage React without giving up the speed Rails provides.
-- Build on Rails MVC patterns with well-tested additions design patterns
+- Build on Rails MVC patterns with well-tested additions design patterns.
 - Use extended versions of Rails' generators that support React.
 - Write tests in RSpec and Jest with zero configuration, including factories on both frontend and backend.
 - Enjoy type-safe client code with TypeScript.
 - Quickly style your components with Tailwind, no CSS files required.
 - Don't stop to setup a database: PostgreSQL is ready to go out of the box.
-- Built in authentication with Devise
+- Built in authentication with Devise.
 
 ## Getting Started
 

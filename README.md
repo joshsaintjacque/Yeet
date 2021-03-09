@@ -29,7 +29,37 @@ What does Yeet give you?
 
 ## Getting Started
 
-Clone the repository.
+Clone the repository:
+
+```bash
+git clone git@github.com:joshsaintjacque/Yeet.git your-project-name
+cd your-project-name
+```
+
+Create your PostgreSQL database user:
+
+```bash
+createuser -U postgres -e -P -d your-db-username
+```
+
+You'll be prompted to enter a password for this user as well.
+
+Run `rails credentials:edit` and enter add your application name, username, and password. Your app name will be used to create databases for each environment (my-app_development, my-app_test, etc.)
+
+```bash
+database:
+    name: your-app-name
+    username: your-db-username
+    password: your-db-password
+```
+
+Save the generated master key file somewhere you and your team can access it.
+
+Next, run `bin/setup` to install dependencies and setup the database.
+
+Now run `rails s` and `bin/webpack-dev-server` to get your local environment running.
+
+Your server is now running on `http://localhost:3000/`. Visit `http://localhost:3000/notes` to see an example CRUD interface behind a login wall.
 
 ## Roadmap
 

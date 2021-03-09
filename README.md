@@ -25,6 +25,7 @@ What does Yeet give you?
 - Quickly style your components with Tailwind, no CSS files required.
 - Don't stop to setup a database: PostgreSQL is ready to go out of the box.
 - Built in authentication with Devise.
+- A working CI from the first push with a GitHub Actions workflow included.
 
 ## Getting Started
 
@@ -37,7 +38,6 @@ Clone the repository.
 - [ ] Page generator
 - [ ] Component generator
 - [ ] Component scaffolding CRUD generator
-- [ ] GitHub actions YML
 - [ ] Script/setup based on fresh clone
 - [ ] Add authentication tests (user model, main layout, controller, etc.)
 
